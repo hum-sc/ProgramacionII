@@ -43,6 +43,7 @@ public class Principal {
         escribir("Titulo: "+libro.getTitulo());
         escribir("Precio: "+libro.getPrecio()+"$");
         escribir("Número de páginas: "+libro.getNumPaginas());
+        teclado.close();
     }
     
     public static void escribir(String mensaje){
