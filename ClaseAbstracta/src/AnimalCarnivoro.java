@@ -1,3 +1,4 @@
+//José Raúl Resendiz Carrillo y Humberto Antonio Salinas Cortés
 public class AnimalCarnivoro extends Animal {
     AnimalCarnivoro(){}
     @Override
