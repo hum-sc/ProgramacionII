@@ -1,3 +1,4 @@
+//Humberto Antonio Salinas Cortés y José Raul Resendiz Carrillo
 
 public class BusquedaSecuencial {
     int[] numeros;
