@@ -1,3 +1,4 @@
+//Humberto Antonio Salinas Cortes y Jose Raul Resendiz Carrillo
 import java.util.Vector;
 import java.util.Scanner;
 public class Principal{
