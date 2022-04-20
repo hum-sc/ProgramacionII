@@ -1,3 +1,4 @@
+//Jose Raul y Humberto
 public class Alumno {
     int cuenta;
     String nombre;

@@ -1,3 +1,4 @@
+//José Raúl Resendiz Carrillo y Humberto Antonio Salinas Cortés
 public class Principal {
     public static void main(String[] args) throws Exception {
         BusquedaBinaria busquedaBinaria = new BusquedaBinaria();

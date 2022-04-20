@@ -1,3 +1,4 @@
+//Jose Raul y Humberto
 import java.util.LinkedList;
 import java.util.Iterator;
 public class Lista {
@@ -8,14 +9,12 @@ public class Lista {
 
         lista = new LinkedList<Alumno>();
         vista = new Vista();
-        iterador = lista.iterator();
-        
     }
 
     public void inicio(){
-        int option = 0;
+        int option = -1;
         Alumno alumno;
-        while (option!=0){
+        while (option!=7){
             option = 0;
             option = vista.leeEntero("Elige una accion:\n\t1.Insertar al inicio\n\t2.Insertar al final\n\t3.Eliminar al inicio\n\t4.Eliminar al final\n\t5.Buscar\n\t6.Mostrar\n\t7.Salir");
             switch (option) {
@@ -34,8 +33,8 @@ public class Lista {
                     eliminaFinal();
                     break;
                 case 5:
-                    String nombre = vista.leeString("Ingresa el nombre a buscar");
-                    buscar(nombre);
+                    double n = vista.leeDouble("Ingrese el No. de cuenta del alumno que quiere buscar");
+                    buscar(n);
                     break;
                 case 6:
                     desplegarLista();
@@ -80,31 +79,32 @@ public class Lista {
             vista.mostrarMensaje("Alumno eliminado");
         } else vista.mostrarMensaje("Lista vacia");
     }
-    public void buscar(String nombre){
+    public void buscar(double n){
+        iterador = lista.iterator();
         boolean seEncontro = false;
         Alumno alumno;
         int index = 0;
         while(iterador.hasNext()){
             alumno = iterador.next();
-            if (alumno.nombre == nombre){
+            if (alumno.cuenta == n){
                 seEncontro = true;
                 index = lista.indexOf(alumno);
                 break; 
             }
         }
         if (seEncontro){
-            vista.mostrarMensaje("El alumno está en la posición: "+index);
+            vista.mostrarMensaje("El alumno esta en la posicion: "+index);
         }else vista.mostrarMensaje("Alumno no encontrado :(");
     }
     public void desplegarLista(){
-
+        iterador = lista.iterator();
         Alumno alumno;
         int total= 0;
         String data="";
         while (iterador.hasNext()){
             total ++;
             alumno = iterador.next();
-            data+="\n"+total+".- Cuenta: "+alumno.getCuenta()+"\tNombre: "+alumno.getNombre()+"\tCalificacion: "+alumno.getCalificacion();
+            data+="\n"+total+".- Cuenta: "+alumno.getCuenta()+"\t\t Nombre: "+alumno.getNombre()+"\t\t Calificacion: "+alumno.getCalificacion();
         }
         vista.mostrarMensaje(data);
     }
