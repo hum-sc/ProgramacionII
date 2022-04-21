@@ -1,5 +1,6 @@
 //José Raúl Resendiz Carrillo y Humberto Antonio Salinas Cortés
-import java.util.Arrays;
+import java.util.LinkedList;
+
 import javax.swing.JOptionPane;
 public class Vista {
     public int leeEntero(String mensaje){
@@ -23,8 +24,8 @@ public class Vista {
         choice = Double.parseDouble(cad);
         return choice;
     }
-    public void mostrarVector(int []vector, String mensaje){
-        JOptionPane.showMessageDialog(null,mensaje+"\n\n"+Arrays.toString(vector));
+    public void mostrarVector(LinkedList vector, String mensaje){
+        JOptionPane.showMessageDialog(null,mensaje+"\n\n"+vector);
     }
 
     public void mostrarMensaje(String mensaje){

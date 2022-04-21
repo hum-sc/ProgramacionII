@@ -1,32 +1,23 @@
-import java.util.Scanner;
-
+//José Raúl Resendiz Carrillo y Humberto Antonio Salinas Cortés
 public class Principal {
     public static void main(String[] args) throws Exception {
-        Scanner entrada = new Scanner(System.in);
-        Inventario pila = new Inventario();
+        Inventario inventario = new Inventario();
         Vista vista = new Vista();
         String paises;
         int opcion;
 
-        do{
-            vista.mostrarMensaje("Menu");
-            vista.mostrarMensaje("1. Entrada");
-            vista.mostrarMensaje("2. Salida");
-            vista.mostrarMensaje("3. Paquete a enviar");
-            vista.mostrarMensaje("4. Lista de paquetes");
-            vista.mostrarMensaje("5. Salir");
-        
-            opcion = vista.leeEntero("Opcion");
+        do{        
+            opcion = vista.leeEntero("Menu \n1. Entrada\n2. Salida\n3. Paquete a enviar\n4. Lista de paquetes\n5. Salir");
             switch(opcion){
                 case 1: 
                     paises = vista.leeString("Ingresar el Pais: ");
-                    pila.push(paises);
+                    inventario.push(paises);
                     break;
-                case 2: vista.mostrarMensaje(pila.pop());
+                case 2: vista.mostrarMensaje(inventario.pop());
                     break;
-                case 3: vista.mostrarMensaje(pila.peek());
+                case 3: vista.mostrarMensaje(inventario.peek());
                     break;
-                case 4: vista.mostrarVector(pila.paquetes, "Paquetes en la pila: ");
+                case 4: vista.mostrarVector(inventario.paquetes, "Paquetes en la inventario: ");
                     break;
             }
         }while(opcion != 5);

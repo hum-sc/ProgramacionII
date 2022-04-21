@@ -1,3 +1,4 @@
+//José Raúl Resendiz Carrillo y Humberto Antonio Salinas Cortés
 import java.util.LinkedList;
 public class Inventario {
     public LinkedList <String> paquetes;
