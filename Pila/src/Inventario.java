@@ -15,13 +15,12 @@ public class Inventario {
             String data = "Eliminando el paquete del pais: " + peek();
             paquetes.pop();
             return data;
-        } else return "No hay paquetes";
+        } else return "Lista vacia";
         
     }
+
     public String peek(){
-        if (!paquetes.isEmpty()){
-            String data = paquetes.peek();
-            return data;
-        } else return "No hay paquetes";
+        String data = paquetes.peek();
+        return data;
     }
 }
