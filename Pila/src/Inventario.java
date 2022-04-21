@@ -10,8 +10,13 @@ public class Inventario {
         paquetes.push(pais);
     }
     
-    public void pop(){
-        paquetes.pop();
+    public String pop(){
+        if(!paquetes.isEmpty()){
+            String data = "Eliminando el paquete del pais: " + peek();
+            paquetes.pop();
+            return data;
+        } else return "Lista vacia";
+        
     }
 
     public String peek(){
