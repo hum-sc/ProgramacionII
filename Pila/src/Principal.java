@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) throws Exception {
-        Scanner entrada = new Scanner(System.ln);
+        Scanner entrada = new Scanner(System.in);
         Inventario pila = new Inventario();
         String paises;
 
@@ -13,7 +13,7 @@ public class Principal {
             System.out.println("3. Paquete a enviar");
             System.out.println("4. Lista de paquetes");
             System.out.println("5. Salir");
-            System.out.println("Obcion: ");
+            System.out.println("Opcion: ");
             
             paises = entrada.nextLine();
 
