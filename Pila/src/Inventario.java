@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 public class Inventario {
-    LinkedList <String> paquetes;
+    public LinkedList <String> paquetes;
     
     Inventario(){
         paquetes = new LinkedList<String>();
