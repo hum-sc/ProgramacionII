@@ -1,3 +1,4 @@
+//Raul Resendiz y Humberto Antonio
 public class Nodo {
     public int id;
     public String descripcion;
@@ -88,7 +89,9 @@ public class Nodo {
         }
         
 
-        return (status ? "El producto de los siguientes datos fue eliminado:\nClave: "+nodo.getId()+"\nDescripcion: "+nodo.getDescripcion() 
+        return (status ? "El producto de los siguientes datos fue eliminado:\nClave: "
+            +nodo.getId()
+            +"\nDescripcion: "+nodo.getDescripcion() 
             : "No existe el producto")+"\n"+((data != "") ? data: "");
     }
 
@@ -207,6 +210,5 @@ public class Nodo {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
 
 }

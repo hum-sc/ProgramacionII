@@ -1,3 +1,4 @@
+//Humberto Antonio y Raul Resendiz
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
@@ -26,7 +27,8 @@ public class App {
                 case 3:
                     id = vista.leeEntero("Ingrese la clave del producto a buscar:");
                     nodo = arbol.buscarNodo(id);
-                    vista.mostrarMensaje(((nodo != null) ? "Se encontro el producto y sus datos son:\nClave: "+nodo.getId()+"\nDescripcion: "+nodo.getDescripcion():"No existe el nodo"));
+                    vista.mostrarMensaje(((nodo != null) ? "Se encontro el producto y sus datos son:\nClave: "
+                        +nodo.getId()+"\nDescripcion: "+nodo.getDescripcion():"No existe el nodo"));
                     break;
                 case 4:
                 
