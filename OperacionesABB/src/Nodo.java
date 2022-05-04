@@ -2,48 +2,63 @@ public class Nodo {
     public int id;
     public String descripcion;
     public Nodo hijoI, hijoD, padre, raiz;
-
+    public Nodo(){}
     public Nodo(int id, String descripcion, Nodo padre){
         this.id = id;
         this.descripcion = descripcion;
         this.padre = padre;
     }
 
-    public void preOrden(Nodo nodo){
+    public String preOrden(Nodo nodo){
         if(nodo != null){
-            System.out.println(nodo.getId());
-            preOrden(nodo.getHijoI());
-            preOrden(nodo.getHijoD());
+            Nodo i = nodo.getHijoI();
+            Nodo d = nodo.getHijoD(); 
+            return "\nClave: "+nodo.getId()+" Descripcion: "+nodo.getDescripcion()
+                +((i != null)? preOrden(i) : "")
+                +((d != null) ? preOrden(d):"");
         }
+        return("");
     }
 
-    public void enOrden(Nodo nodo){
-        if (nodo != null){
-            enOrden(nodo.getHijoI());
-            System.out.println(nodo.getId());
-            enOrden(nodo.getHijoD());
+    public String enOrden(Nodo nodo){
+        if (nodo != null) {
+            Nodo i = nodo.getHijoI();
+            Nodo d = nodo.getHijoD(); 
+            return  ((i != null)? enOrden(i) : "") 
+                + "\nClave: "+ nodo.getId() + " Descripcion: "+nodo.getDescripcion()
+                +((d != null) ? enOrden(d):"");
         }
+        return "";
     }
 
-    public void posOrden(Nodo nodo){
+    public String posOrden(Nodo nodo){
         if(nodo != null){
-            posOrden(nodo.getHijoI());
-            posOrden(nodo.getHijoD());
-            System.out.println(nodo.getId());
+            Nodo i = nodo.getHijoI();
+            Nodo d = nodo.getHijoD(); 
+            return ((i != null) ? posOrden(i): "")
+                +((d != null) ? posOrden(d):"")
+                +"\nClave: "+nodo.getId()+" Descripcion: "+nodo.getDescripcion();
         }
+        return "";
     }
 
-    public void insertarNodo(int id, String descripcion){
-        Nodo padre;
-        padre = buscarPadreCreador(id);
+    public String insertarNodo(int id, String descripcion){
+        String data="Nodo creado\n";
+        Nodo padre = buscarPadreCreador(id);
         Nodo nodo = new Nodo(id, descripcion, padre);
-
-        if(raiz == null) nodo.setRaiz(nodo);
-        else if (nodo.getId() <= nodo.padre.getId()){
+        if(raiz == null) {
+            setRaiz(nodo);
+            data += "Este es el nodo raiz";
+        } else if (nodo.getId() <= nodo.padre.getId()){
                 nodo.padre.setHijoI(nodo);
+                data += "Hijo izquierdo del nodo: "+nodo.padre.getId();
             } else {
                 nodo.padre.setHijoD(nodo);
+                data += "Hijo derecho del nodo: "+nodo.padre.getId();
             }
+        
+        return data+"\nClave: "+ id + "\nDescripcion: "+descripcion;
+        
     }
 
     public Nodo buscarPadreCreador(int id){
@@ -58,14 +73,23 @@ public class Nodo {
         return padre;
     }
 
-    public boolean eliminar(Nodo nodo){
+    public String eliminar(Nodo nodo){
         boolean tieneHijoD, tieneHijoI;
-        tieneHijoD = (nodo.getHijoD() != null) ? true: false;
-        tieneHijoI = (nodo.getHijoI() != null) ? true : false;
+        boolean status = false;
+        String data ="";
+        if(nodo != null){
+            tieneHijoD = (nodo.getHijoD() != null) ? true: false;
+            tieneHijoI = (nodo.getHijoI() != null) ? true : false;
+            if(tieneHijoD == false && tieneHijoI == false) status = eliminaCaso1(nodo);
+            else if (tieneHijoD && tieneHijoI){
+                data = eliminaCaso3(nodo);
+                status = (data != "")?true:false;
+            } else status = eliminaCaso2(nodo);
+        }
+        
 
-        if(tieneHijoD == false && tieneHijoI == false) return eliminaCaso1(nodo);
-        else if (tieneHijoD && tieneHijoI) return eliminaCaso3(nodo);
-            else return eliminaCaso2(nodo);
+        return (status ? "El producto de los siguientes datos fue eliminado:\nClave: "+nodo.getId()+"\nDescripcion: "+nodo.getDescripcion() 
+            : "No existe el producto")+"\n"+((data != "") ? data: "");
     }
 
     public boolean eliminaCaso1(Nodo nodo){
@@ -107,18 +131,18 @@ public class Nodo {
         return false;
     }
 
-    public boolean eliminaCaso3(Nodo nodo){
+    public String eliminaCaso3(Nodo nodo){
         Nodo masI;
         masI = recorrerIzquierda(nodo.getHijoD());
 
-        System.out.println("El nodo remplazado es:"+ masI.getId());
-        if (masI != null){
+        if (nodo != null){
             nodo.setId(masI.getId());
             nodo.setDescripcion(masI.getDescripcion());
             eliminar(masI);
-            return true;
+
+            return "El nodo reemplazado es:"+masI.getId();
         }
-        return false;
+        return "";
     }
 
 
@@ -130,12 +154,14 @@ public class Nodo {
     public Nodo buscarNodo(int elemento){
         Nodo aux;
         aux = raiz;
-
-        while(aux.getId() != elemento){
-            aux = (elemento < aux.getId()) ? aux.getHijoI(): aux.getHijoD();
-            if (aux == null) break;
+        if(aux != null){
+            while(aux.getId() != elemento){
+                aux = (elemento < aux.getId()) ? aux.getHijoI(): aux.getHijoD();
+                if (aux == null) break;
+            }
+            return aux;
         }
-        return aux;
+        return null;
     }
 
 
