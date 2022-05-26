@@ -52,3 +52,57 @@ linkedList.poll()//Retorna la cabeza y lo elimina
 linkedList.getFirst()
 linkedList.getLast()
 ```
+
+## Arbol binario
+Cada nodo tiene a lo más dos nodos
+
+Hay varias formas de recorrerlos ellos son
+- Preorden RID
+- Orden IRD
+- PosOrden IDR
+## Arbol binario de busqueda
+Lo mismo que el anterior pero se insertan los más grandes a la derecha y los más pequeños a la izquierda
+
+Para eliminar podemos usar `izquierdo más derecho` o `derecho más izquierdo`
+
+## Arbol AVL
+Asi se llama por el las iniciales de sus creadores
+
+Es un arbol autobalanceado, estos tienen un factor de equilibrio `FE` que es la diferencia entre el numero de niveles de la rama derecha e izquierda, este numero no febe ser mayor a 1 para decir qu el arbol esta balanceado.
+
+Para balancear usamos:
+
+Rotacion simple (DD o II)
+
+Rotacion Compuesta (DI o ID)
+
+Si el dato que se pone al centro tiene hijos, estos se traspazan a las raices
+
+## Arbol B
+Es un arbol donde cada rama puede tener n-1 datos, si sobre pasa, el valor del centro sube, y los datos de los lados crean dos nuevas ramas
+
+## Archivo
+```java
+File(pathname)
+.exist() //retorna true si existe
+.createNewFile() //Crea un nuevo archivo
+.getAbsolutePath() //Regresa la ruta absoluta
+
+FileWriter(nobreArchivoEditar)
+.write(data) //Escribe la data en el archivo
+.close()//Cierra el archivo
+
+FileReader(nombreArchivoLeer)//Reads text from character files using a default buffer size. Decoding from bytes to characters uses either a specified charset or the platform's default charset.
+
+BufferedReader(FileReader)
+.readLine()//Lee una linea
+.close() //Cierra el archivo
+```
+
+## Archivo de acceso aleatorio
+```java
+RandomAccessFile //Archivo en el que puedes saltar a una posicion en una instruccion sin tener que leer secuencialmente como en File
+
+.seek(positionInBytes)//Posiciona el puntero en el byte seleccionado
+.writeType(data)//Escribe la data del Type indicado y mueve el puntero al siguiente byte
+.readType()//Lee el dato del Type indicado y mueve el puntero al byte siguiente
