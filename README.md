@@ -22,3 +22,33 @@ Son los metodos sobreescritos.
 Sigue una ruta y da acceso a elementos de datos del contenedor, pero no realiza iteración, nosotros debemos avanzarlo o retrocederlo.
 ## Recursividad
 La recursividad es una funcion que se llama a si misma hasta encontrar un caso base y regresa todo de golpe
+
+# Segundo parcial
+## Busqueda secuencial
+## Busqueda binaria
+## Linked list
+```java
+LinkedList<tipoDeDato> linkedList = new LinkedList<tipoDeDato>();
+linkedList.addFirst(Object) //Añade al inicio
+linkedList.addLast(Object) //Añade al final
+linkedList.removeFirst(Object)//Elimina el primero
+linkedList.removeLast(Object)//Elimina el final
+linkedList.isEmpty()//Regresa true si esta vacio
+```
+## Pila (Stack)
+Se implementa mediante un linkedList
+```java
+linkedList.push(Objeto)//Apila un nuevo dato
+linkedList.pop() //Elimina el ultimo dato apilado
+linkedList.peek()//Retorna el ultimo dato apilado
+```
+
+## Cola (Queue)
+```java
+linkedList.offer(Objeto)//Añade el dato al final de la cola
+linkedList.peek()//Retorna la cabeza de la cola (el primer elemento)
+linkedList.poll()//Retorna la cabeza y lo elimina
+
+linkedList.getFirst()
+linkedList.getLast()
+```
